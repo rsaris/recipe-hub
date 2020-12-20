@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Authentication
 gem 'devise'
 gem 'omniauth-oauth2'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

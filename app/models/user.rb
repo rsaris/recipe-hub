@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :rememberable, :omniauthable, omniauth_providers: [:google_oauth2]
+  devise :rememberable, :omniauthable, omniauth_providers: [:github]
 
   validates :email, presence: true, uniqueness: true
   validates :provider, presence: true

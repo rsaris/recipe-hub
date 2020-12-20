@@ -1,8 +1,10 @@
-# Where's my car
+# Recipe hub
 
-I have to park on the street & have a terrible memory. The goal here is to be able to tell my smart speaker "The car is parked at X" and then I can ask it "Where's the car?" and it'll tell me.
+I have a Github project which manages my recipes but would like better functionality. The goal here is to build a system which can interact with a Github repo to provide the benefits of git with additional functionality.
 
 # Tools to play with
 
 * Devise and Omniauth for account creation / management
-* Google Actions for interacting with Google Assistant
+* Github API w/ Oauth for repo management
+* https://github.com/remarkjs/react-markdown -- used to display markdown
+* https://github.com/ruby-git/ruby-git -- interact with a Git repo

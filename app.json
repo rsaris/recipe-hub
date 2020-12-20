@@ -1,5 +1,5 @@
 {
-  "name": "wheres-my-car",
+  "name": "recipe-hub",
   "scripts": {
     "postdeploy": "rails db:migrate db:seed"
   },

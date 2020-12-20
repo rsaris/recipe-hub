@@ -1,5 +1,5 @@
 {
-  "name": "wheres_my_car",
+  "name": "recipe_hub",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

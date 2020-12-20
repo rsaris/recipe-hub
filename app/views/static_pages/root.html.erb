@@ -2,8 +2,8 @@
   <% if signed_in? %>
     <p>You're signed in as <%= current_user.email %></p>
 
-    <%= button_to 'Sign in ANYWAY', user_google_oauth2_omniauth_authorize_path %>
+    <%= button_to 'Sign in ANYWAY', user_github_omniauth_authorize_path %>
   <% else %>
-    <%= button_to 'Sign in with Google', user_google_oauth2_omniauth_authorize_path %>
+    <%= button_to 'Sign in with Github', user_github_omniauth_authorize_path %>
   <% end %>
 </div>

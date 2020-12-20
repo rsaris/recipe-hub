@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     email
-    provider { 'google' }
+    provider { 'github' }
     uid
   end
 end

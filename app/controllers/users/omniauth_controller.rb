@@ -1,6 +1,6 @@
 module Users
   class OmniauthController <  Devise::OmniauthCallbacksController
-    def google_oauth2
+    def github
       sign_in_and_redirect request_user
     end
 

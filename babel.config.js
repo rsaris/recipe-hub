@@ -81,7 +81,11 @@ module.exports = function(api) {
         {
           removeImport: true
         }
-      ]
+      ],
+      [
+        'babel-plugin-webpack-alias',
+        { config: 'config/webpack/alias.js' },
+      ],
     ].filter(Boolean)
   }
 }

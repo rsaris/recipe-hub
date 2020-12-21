@@ -11,6 +11,7 @@ gem 'pg'
 gem 'puma', '~> 4.1'
 
 gem 'webpacker', '~> 5.2'
+gem 'js-routes' # Render Routes in Webpacker
 
 # Authentication
 gem 'devise'

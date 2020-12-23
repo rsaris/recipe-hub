@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   root 'static_pages#root'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
+
+  resources :recipes, only: :index
+
+  namespace :api, defaults: { format: :json } do
+    resources :recipes, only: [:index, :show]
+  end
 end

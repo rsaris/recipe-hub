@@ -72,4 +72,4 @@ export {
   httpPatch,
   httpPost,
   httpPut,
-}
+};

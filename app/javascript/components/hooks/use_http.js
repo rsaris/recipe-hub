@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
@@ -38,5 +38,5 @@ export default function useHttp() {
     httpPost,
     httpPut,
     store,
-  }
+  };
 }

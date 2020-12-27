@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
 
-  resources :recipes, only: :index
+  get 'recipes', to: 'recipes#index', as: :recipes
+  get 'recipes/*path', to: 'recipes#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :recipes, only: [:index, :show]
+    resources :recipes, only: [:create, :index, :show]
   end
 end

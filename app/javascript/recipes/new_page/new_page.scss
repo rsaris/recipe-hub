@@ -1,0 +1,57 @@
+@import 'styles/mixins/remove_button_styles';
+
+.NewPage {
+  box-sizing: border-box;
+  height: 100%;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__title {
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 2rem;
+
+    &:active, &:focus, &:focus-within {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #CCCCCC;
+    }
+  }
+
+  &__content {
+    border: none;
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 1rem;
+    margin: 2rem 0;
+    resize: none;
+
+    &:active, &:focus, &:focus-within {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__submit {
+    @include remove-button-styles();
+
+    background-color: #555555;
+    font-size: 1.5rem;
+    padding: 1rem;
+
+    &, &:active, &:hover, &:focus {
+      color: #FFFFFF;
+    }
+
+    &:not(:disabled) {
+      &:active, &:hover, &:focus {
+        background-color: #333333;
+        color: #EEEEEE;
+      }
+    }
+  }
+}

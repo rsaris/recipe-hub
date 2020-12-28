@@ -1,8 +1,59 @@
+@import './colors';
+
+body[data-theme="dark"] {
+  --colors-font-100: var(--colors-gray-100);
+  --colors-font-200: var(--colors-gray-200);
+  --colors-font-300: var(--colors-gray-300);
+  --colors-font-400: var(--colors-gray-400);
+  --colors-font-500: var(--colors-gray-500);
+  --colors-font-600: var(--colors-gray-600);
+  --colors-font-700: var(--colors-gray-700);
+  --colors-font-800: var(--colors-gray-800);
+  --colors-font-900: var(--colors-gray-900);
+
+  --colors-background-100: var(--colors-gray-900);
+  --colors-background-200: var(--colors-gray-800);
+  --colors-background-300: var(--colors-gray-700);
+  --colors-background-400: var(--colors-gray-600);
+  --colors-background-500: var(--colors-gray-500);
+  --colors-background-600: var(--colors-gray-400);
+  --colors-background-700: var(--colors-gray-300);
+  --colors-background-800: var(--colors-gray-200);
+  --colors-background-900: var(--colors-gray-100);
+}
+
+body[data-theme="light"] {
+  --colors-font-100: var(--colors-gray-900);
+  --colors-font-200: var(--colors-gray-800);
+  --colors-font-300: var(--colors-gray-700);
+  --colors-font-400: var(--colors-gray-600);
+  --colors-font-500: var(--colors-gray-500);
+  --colors-font-600: var(--colors-gray-400);
+  --colors-font-700: var(--colors-gray-300);
+  --colors-font-800: var(--colors-gray-200);
+  --colors-font-900: var(--colors-gray-100);
+
+  --colors-background-100: white;
+  --colors-background-200: var(--colors-gray-200);
+  --colors-background-300: var(--colors-gray-300);
+  --colors-background-400: var(--colors-gray-400);
+  --colors-background-500: var(--colors-gray-500);
+  --colors-background-600: var(--colors-gray-600);
+  --colors-background-700: var(--colors-gray-700);
+  --colors-background-800: var(--colors-gray-800);
+  --colors-background-900: var(--colors-gray-900);
+}
+
 html, body {
   font-family: sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body, input, textarea {
+  color: var(--colors-font-100);
+  background-color: var(--colors-background-100);
 }
 
 .page {

@@ -1,13 +1,15 @@
 import React, { useEffect, useState, Fragment } from 'react';
 
 import ReactMarkdown from 'react-markdown';
-import { Link } from 'react-router-dom';
 
+import { ButtonLink } from 'common/button';
 import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
 
 import routes from 'lib/routes.js.erb';
+
+import './list_page.scss';
 
 function renderRecipe(recipe) {
   return `# ${recipe.title}\n${recipe.content}`;
@@ -31,7 +33,10 @@ export default function ListPage() {
 
   return (
     <Page className="ListPage">
-      <h1>Recipes <Link to="/recipes/new">+</Link></h1>
+      <h1 className="ListPage__header">
+        Recipes
+        <ButtonLink to="/recipes/new">+</ButtonLink>
+      </h1>
       {
         recipes.map((recipe) => (
           <Fragment key={recipe.id}>

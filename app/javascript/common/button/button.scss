@@ -1,0 +1,66 @@
+@import 'styles/mixins/remove_button_styles';
+
+@mixin button-colors(
+  $color,
+  $background-color,
+  $active-color: $color,
+  $active-background-color: $background-color,
+) {
+  background-color: $background-color;
+  color: $color;
+  line-height: 1;
+
+  &:active, &:hover, &:focus {
+    background-color: $active-background-color;
+    color: $active-color;
+  }
+
+  &:disabled {
+    &:active, &:hover, &:focus {
+      background-color: $background-color;
+      color: $color;
+    }
+  }
+}
+
+.Button {
+  @include remove-button-styles();
+
+  // COLORS
+  &--dark {
+    @include button-colors(
+      var(--colors-gray-100),
+      var(--colors-gray-700),
+      var(--colors-gray-100),
+      var(--colors-gray-800),
+    );
+  }
+
+  &--primary {
+    @include button-colors(
+      var(--colors-font-900),
+      var(--colors-background-800),
+      var(--colors-font-900),
+      var(--colors-background-900),
+    );
+  }
+
+  // SIZES
+  &--small {
+
+  }
+
+  &--medium {
+    font-size: 1rem;
+    padding: .5rem;
+  }
+
+  &--large {
+
+  }
+
+  &--x-large {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}

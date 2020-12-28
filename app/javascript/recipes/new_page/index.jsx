@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { Button, buttonSizes, buttonThemes } from 'common/button';
 import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
@@ -33,21 +34,22 @@ export default function NewPage() {
           className="NewPage__title"
           placeholder="New recipe"
           value={title}
-          onChange={({ target: { value }}) => setTitle(value)}
+          onChange={({ target: { value } }) => setTitle(value)}
         />
         <textarea
           className="NewPage__content"
           placeholder="Enter your recipe!"
           value={content}
-          onChange={({ target: { value }}) => setContent(value)}
+          onChange={({ target: { value } }) => setContent(value)}
         />
-        <button
-          className="NewPage__submit"
+        <Button
           disabled={!title || !content}
+          size={buttonSizes.XL}
+          theme={buttonThemes.DARK}
           type="submit"
         >
           Create recipe
-        </button>
+        </Button>
       </form>
     </Page>
   );

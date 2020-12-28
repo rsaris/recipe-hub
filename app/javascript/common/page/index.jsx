@@ -10,10 +10,12 @@ const Page = ({ children, className }) => (
 );
 
 Page.propTypes = {
+  children: propTypes.node,
   className: propTypes.string,
 };
 
 Page.defaultProps = {
+  children: undefined,
   className: undefined,
 };
 

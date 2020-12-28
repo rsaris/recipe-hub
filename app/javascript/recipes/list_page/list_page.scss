@@ -1,0 +1,11 @@
+.ListPage {
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .Button {
+      margin-left: .5rem;
+    }
+  }
+}

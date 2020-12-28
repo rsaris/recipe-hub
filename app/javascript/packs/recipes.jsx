@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import RecipesApp from 'recipes';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const appElement = document.createElement('div')
+  const appElement = document.createElement('div');
   appElement.classList.add('RecipesApp');
 
   ReactDOM.render(

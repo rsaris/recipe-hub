@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'recipes/*path', to: 'recipes#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :recipes, only: [:create, :index, :show]
+    resources :recipes, only: [:create, :index, :show, :update]
   end
 end

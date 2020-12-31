@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 
+import EditPage from './edit_page';
 import ListPage from './list_page';
 import NewPage from './new_page';
 
@@ -13,14 +14,23 @@ export default function RecipesApp() {
       <Route
         exact
         path="/recipes"
-        component={ListPage}
-      />
+      >
+        <ListPage />
+      </Route>
 
       <Route
         exact
         path="/recipes/new"
-        component={NewPage}
-      />
+      >
+        <NewPage />
+      </Route>
+
+      <Route
+        exact
+        path="/recipes/:recipeId/edit"
+      >
+        <EditPage />
+      </Route>
     </Switch>
   );
 }

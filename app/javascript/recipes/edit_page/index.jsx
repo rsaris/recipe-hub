@@ -5,7 +5,7 @@ import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
 
-import routes from 'lib/routes.js.erb';
+import routes from 'lib/routes';
 
 import RecipeEditor from '../recipe_editor';
 
@@ -41,7 +41,7 @@ export default function EditPage() {
       routes.api_recipe_path({ id: recipeId }),
       { data: { attributes: { title, content } } },
     );
-    push('/recipes');
+    push(routes.recipePath(recipeId));
   }
 
   return (

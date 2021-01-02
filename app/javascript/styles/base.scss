@@ -1,4 +1,5 @@
-@import './colors';
+@import 'variables/colors';
+@Import 'variables/fonts';
 
 body[data-theme="dark"] {
   --colors-font-100: var(--colors-gray-100);

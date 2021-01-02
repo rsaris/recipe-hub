@@ -6,7 +6,7 @@
   &__title {
     border: none;
     border-bottom: 1px solid var(--colors-font-200);
-    font-size: 2rem;
+    font-size: var(--font-size-x-large);
 
     &:active, &:focus, &:focus-within {
       border: none;
@@ -19,7 +19,7 @@
     border: none;
     flex-grow: 1;
     font-family: monospace;
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
     margin: 2rem 0;
     resize: none;
 

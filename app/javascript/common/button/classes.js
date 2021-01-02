@@ -3,14 +3,20 @@ import propTypes from 'prop-types';
 
 export const buttonSizes = {
   SM: 'small',
+  SM_NO_PADDING: 'small-no-padding',
   MD: 'medium',
+  MD_NO_PADDING: 'medium-no-padding',
   LG: 'large',
+  LG_NO_PADDING: 'large-no-padding',
   XL: 'x-large',
+  XL_NO_PADDING: 'x-large-no-padding',
+  NONE: 'none',
 };
 
 export const buttonThemes = {
   DARK: 'dark',
   PRIMARY: 'primary',
+  TEXT: 'text',
 };
 
 export const buttonPropTypes = {

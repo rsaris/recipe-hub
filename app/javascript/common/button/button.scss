@@ -45,22 +45,44 @@
     );
   }
 
-  // SIZES
-  &--small {
-
+  &--text {
+    @include button-colors(
+      var(--colors-font-100),
+      var(--colors-background-100),
+      var(--colors-font-300),
+    );
   }
 
-  &--medium {
-    font-size: 1rem;
+  // SIZES
+  &--small, &--small-no-padding {
+    font-size: var(--font-size-small);
+  }
+
+  &--small {
     padding: .5rem;
   }
 
-  &--large {
+  &--medium, &--medium-no-padding {
+    font-size: var(--font-size-medium);
+  }
 
+  &--medium {
+    padding: .5rem;
+  }
+
+  &--large, &--large-no-padding {
+    font-size: var(--font-size-large);
+  }
+
+  &--large {
+    padding: .75rem;
+  }
+
+  &--x-large, &--x-large-no-padding {
+    font-size: var(--font-size-x-large);
   }
 
   &--x-large {
-    font-size: 1.5rem;
     padding: 1rem;
   }
 }

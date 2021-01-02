@@ -5,7 +5,7 @@ import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
 
-import routes from 'lib/routes.js.erb';
+import routes from 'lib/routes';
 
 import RecipeEditor from '../recipe_editor';
 
@@ -19,11 +19,13 @@ export default function NewPage() {
 
   async function handleSave(event) {
     event.preventDefault();
-    await httpPost(
+    const response = await httpPost(
       routes.api_recipes_path(),
       { data: { attributes: { title, content } } },
     );
-    push('/recipes');
+    if (response) {
+      push(routes.recipePath(response.id));
+    }
   }
 
   return (

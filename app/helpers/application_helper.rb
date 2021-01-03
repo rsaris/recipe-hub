@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def dark_mode?
-    !!(params[:dark_mode] || params[:dark])
+    cookies[:theme] == 'dark'
   end
 end

@@ -1,4 +1,11 @@
 .RecipesApp {
+  display: flex;
+  flex-direction: column;
+
   height: 100%;
-  overflow: auto;
+
+  &__content {
+    height: 100%;
+    overflow: auto;
+  }
 }

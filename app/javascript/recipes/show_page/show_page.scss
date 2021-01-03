@@ -1,0 +1,10 @@
+.ShowPage {
+  &__title {
+    display: flex;
+    align-items: center;
+
+    .Button {
+      margin-left: .5rem;
+    }
+  }
+}

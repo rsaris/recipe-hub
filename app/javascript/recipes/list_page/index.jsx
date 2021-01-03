@@ -7,7 +7,7 @@ import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
 
-import routes from 'lib/routes.js';
+import routes from 'lib/routes';
 
 import RecipeListing from './recipe_listing';
 
@@ -35,13 +35,14 @@ export default function ListPage() {
         Recipes
         <ButtonLink
           theme={buttonThemes.TEXT}
+          title="Create new recipe"
           to={routes.newRecipePath()}
         >
           <FontAwesomeIcon icon={faPlus} />
         </ButtonLink>
       </h1>
       <ul className="ListPage__listings">
-        {recipes.map((recipe) => (<RecipeListing recipe={recipe} />))}
+        {recipes.map((recipe) => (<RecipeListing key={recipe.id} recipe={recipe} />))}
       </ul>
     </Page>
   );

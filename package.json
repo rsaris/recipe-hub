@@ -14,6 +14,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-plugin-webpack-alias": "^2.1.2",
     "classnames": "^2.2.6",
+    "cookie_js": "^1.4.0",
     "jsonapi-datastore": "^0.4.0-beta",
     "prop-types": "^15.7.2",
     "rails-erb-loader": "^5.5.2",

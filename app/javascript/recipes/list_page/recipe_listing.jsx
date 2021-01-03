@@ -31,9 +31,9 @@ export default function RecipeListing({ recipe }) {
   );
 }
 
-RecipeListing.propTypes = propTypes.shape({
+RecipeListing.propTypes = {
   recipe: propTypes.shape({
-    id: propTypes.number.isRequired,
+    id: propTypes.string.isRequired,
     title: propTypes.string.isRequired,
-  }),
-});
+  }).isRequired,
+};

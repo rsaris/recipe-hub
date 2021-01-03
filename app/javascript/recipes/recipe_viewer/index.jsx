@@ -6,13 +6,9 @@ import './recipe_viewer.scss';
 
 export default function RecipeViewer({ recipe }) {
   return (
-    <div className="RecipeViewer">
-      <h1 className="RecipeViewer__title">{recipe.title}</h1>
-
-      <ReactMarkdown>
-        {recipe.content}
-      </ReactMarkdown>
-    </div>
+    <ReactMarkdown className="RecipeViewer">
+      {recipe.content}
+    </ReactMarkdown>
   );
 }
 

@@ -48,7 +48,7 @@
   &--text {
     @include button-colors(
       var(--colors-font-100),
-      var(--colors-background-100),
+      rgba(0, 0, 0, 0),
       var(--colors-font-300),
     );
   }

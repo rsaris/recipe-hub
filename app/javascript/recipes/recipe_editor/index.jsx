@@ -37,7 +37,7 @@ export default function RecipeEditor({
         {buttonText}
       </Button>
     </form>
-  )
+  );
 }
 
 RecipeEditor.propTypes = {

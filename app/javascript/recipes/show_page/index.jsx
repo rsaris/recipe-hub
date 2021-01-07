@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { ButtonLink, buttonThemes } from 'common/button';
+import { Button, ButtonLink, buttonThemes } from 'common/button';
 import Page from 'common/page';
 
 import useHttp from 'hooks/use_http';
@@ -17,15 +17,32 @@ import './show_page.scss';
 
 export default function ShowPage() {
   const [recipe, setRecipe] = useState(undefined);
+  const [permissions, setPermissions] = useState(undefined);
   const { recipeId } = useParams();
 
-  const { httpGet } = useHttp();
+  const { httpDelete, httpGet } = useHttp();
+  const { history } = useHistory();
+
+  async function handleDestroyClick() {
+    if (window.confirm('Delete this recipe? This can not be undone.')) {
+      await httpDelete(routes.recipePath(recipeId));
+      history.push(routes.recipesPath());
+    }
+  }
 
   useEffect(() => {
     async function loadRecipe() {
-      const response = await httpGet(routes.api_recipe_path({ id: recipeId }));
+      const response = await httpGet(
+        routes.api_recipe_path(
+          recipeId,
+          { include_permissions: true },
+        ),
+        { includeMeta: true },
+      );
+
       if (response) {
-        setRecipe(response);
+        setRecipe(response.data);
+        setPermissions(response.meta.permissions[recipeId]);
       }
     }
 
@@ -41,13 +58,28 @@ export default function ShowPage() {
       <h1 className="ShowPage__title">
         {recipe.title}
         {' '}
-        <ButtonLink
-          theme={buttonThemes.TEXT}
-          title="Edit recipe"
-          to={routes.editRecipePath(recipe.id)}
-        >
-          <FontAwesomeIcon icon={faPencilAlt} />
-        </ButtonLink>
+        {permissions && (
+          <Fragment>
+            {permissions.edit && (
+              <ButtonLink
+                theme={buttonThemes.TEXT}
+                title="Edit recipe"
+                to={routes.editRecipePath(recipe.id)}
+              >
+                <FontAwesomeIcon icon={faPencilAlt}/>
+              </ButtonLink>
+            )}
+            {permissions.destroy && (
+              <Button
+                theme={buttonThemes.TEXT}
+                title="Destroy recipe"
+                onClick={handleDestroyClick}
+              >
+                <FontAwesomeIcon icon={faTrash}/>
+              </Button>
+            )}
+          </Fragment>
+        )}
       </h1>
       <RecipeViewer recipe={recipe} />
     </Page>

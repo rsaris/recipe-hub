@@ -11,11 +11,16 @@ import {
 } from 'lib/http';
 
 function createHttpMethod(setLoading, httpMethod, store) {
-  return async (path, body) => {
+  return async (path, body, { includeMeta = false } = {}) => {
     setLoading(true);
     const response = await httpMethod(path, body);
     setLoading(false);
-    return store.sync(response);
+
+    if (includeMeta) {
+      return store.syncWithMeta(response);
+    } else {
+      return store.sync(response);
+    }
   };
 }
 
@@ -24,8 +29,20 @@ export default function useHttp() {
 
   const store = useMemo(() => new JsonApiDataStore(), []);
 
+  // Special case GET since it has no body
+  const httpGet = useCallback(async (path, { includeMeta = false } = {}) => {
+    setLoading(true);
+    const response = await rawHttpGet(path);
+    setLoading(false);
+
+    if (includeMeta) {
+      return store.syncWithMeta(response);
+    } else {
+      return store.sync(response);
+    }
+  }, [store]);
+
   const httpDelete = useCallback(createHttpMethod(setLoading, rawHttpDelete, store), [store]);
-  const httpGet = useCallback(createHttpMethod(setLoading, rawHttpGet, store), [store]);
   const httpPatch = useCallback(createHttpMethod(setLoading, rawHttpPatch, store), [store]);
   const httpPost = useCallback(createHttpMethod(setLoading, rawHttpPost, store), [store]);
   const httpPut = useCallback(createHttpMethod(setLoading, rawHttpPut, store), [store]);

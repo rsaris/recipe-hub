@@ -18,6 +18,8 @@ gem 'devise'
 gem 'omniauth-oauth2'
 gem 'omniauth-github'
 
+gem 'pundit', '~> 2.1' # Use Pundit for authorization checks
+
 # API serialization
 gem 'jsonapi-serializer'
 

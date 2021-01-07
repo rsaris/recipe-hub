@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { ButtonLink, buttonSizes, buttonThemes } from 'common/button';
 
@@ -18,14 +18,6 @@ export default function RecipeListing({ recipe }) {
         to={routes.recipePath(recipe.id)}
       >
         <FontAwesomeIcon icon={faEye} />
-      </ButtonLink>
-      {' '}
-      <ButtonLink
-        size={buttonSizes.MD_NO_PADDING}
-        theme={buttonThemes.TEXT}
-        to={routes.editRecipePath(recipe.id)}
-      >
-        <FontAwesomeIcon icon={faPencilAlt} />
       </ButtonLink>
     </li>
   );

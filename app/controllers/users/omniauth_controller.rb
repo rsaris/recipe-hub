@@ -4,6 +4,10 @@ module Users
       sign_in_and_redirect request_user
     end
 
+    def google_oauth2
+      sign_in_and_redirect request_user
+    end
+
     private
 
     def omniauth_auth

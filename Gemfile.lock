@@ -133,6 +133,11 @@ GEM
     omniauth-github (1.4.0)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
+    omniauth-google-oauth2 (0.8.1)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -251,6 +256,7 @@ DEPENDENCIES
   jsonapi-serializer
   listen (>= 3.0.5, < 3.2)
   omniauth-github
+  omniauth-google-oauth2
   omniauth-oauth2
   pg
   puma (~> 4.1)

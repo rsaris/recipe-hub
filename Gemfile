@@ -17,6 +17,7 @@ gem 'js-routes' # Render Routes in Webpacker
 gem 'devise'
 gem 'omniauth-oauth2'
 gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 
 gem 'pundit', '~> 2.1' # Use Pundit for authorization checks
 

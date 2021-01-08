@@ -1,0 +1,25 @@
+@import 'styles/mixins/remove_button_styles';
+
+form.button_to {
+  width: 100%;
+}
+
+.btn-log-in {
+  @include remove-button-styles();
+
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 15rem;
+
+  font-weight: 600;
+  border: 1px var(--colors-background-900) solid;
+  background-color: var(--colors-background-700);
+  color: var(--colors-font-900);
+
+  &:hover, &:focus, &:focus-within {
+    color: var(--colors-font-800);
+    background-color: var(--colors-background-800);
+  }
+}

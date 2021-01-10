@@ -48,4 +48,20 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'associations' do
+    let(:user) { create(:user) }
+
+    it 'deletes all linked recipes' do
+      recipe = create(:recipe, user: user)
+      user.destroy
+      expect { recipe.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'deletes all linked labels' do
+      label = create(:label, user: user)
+      user.destroy
+      expect { label.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end

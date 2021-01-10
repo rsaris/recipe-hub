@@ -33,4 +33,12 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.valid?).to be(true)
     end
   end
+
+  describe 'associations' do
+    subject { create(:recipe) }
+
+    it 'can add a label' do
+      subject.labels << create(:label, user: subject.user)
+    end
+  end
 end

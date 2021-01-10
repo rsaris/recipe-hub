@@ -1,3 +1,5 @@
+# frozen_strin_literal: true
+
 FactoryBot.define do
   sequence :uid do |n|
     "#{n}"

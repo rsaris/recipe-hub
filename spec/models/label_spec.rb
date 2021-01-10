@@ -33,6 +33,14 @@ RSpec.describe Label, type: :model do
     end
   end
 
+  describe 'associations' do
+    subject { create(:label) }
+
+    it 'can add a recipe' do
+      subject.recipes << create(:recipe, user: subject.user)
+    end
+  end
+
   describe 'text=' do
     subject { build_stubbed(:label) }
 

@@ -2,6 +2,7 @@
 
 class Label < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :recipes
 
   validates :text, presence: true, uniqueness: { scope: :user_id }
 

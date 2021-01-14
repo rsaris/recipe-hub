@@ -25,7 +25,7 @@ export default function ShowPage() {
 
   async function handleDestroyClick() {
     if (window.confirm('Delete this recipe? This can not be undone.')) {
-      await httpDelete(routes.recipePath(recipeId));
+      await httpDelete(routes.api_recipe_path(recipeId));
       history.push(routes.recipesPath());
     }
   }
@@ -66,7 +66,7 @@ export default function ShowPage() {
                 title="Edit recipe"
                 to={routes.editRecipePath(recipe.id)}
               >
-                <FontAwesomeIcon icon={faPencilAlt}/>
+                <FontAwesomeIcon icon={faPencilAlt} />
               </ButtonLink>
             )}
             {permissions.destroy && (
@@ -75,7 +75,7 @@ export default function ShowPage() {
                 title="Destroy recipe"
                 onClick={handleDestroyClick}
               >
-                <FontAwesomeIcon icon={faTrash}/>
+                <FontAwesomeIcon icon={faTrash} />
               </Button>
             )}
           </Fragment>

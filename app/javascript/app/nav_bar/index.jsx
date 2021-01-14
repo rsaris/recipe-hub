@@ -1,23 +1,17 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import {
-  Button,
   ButtonLink,
   buttonSizes,
   buttonThemes,
 } from 'common/button';
 
 import routes from 'lib/routes';
-import { toggleTheme } from 'lib/theme';
 
 import './nav_bar.scss';
-
-function handleDarkModeOnClick() {
-  toggleTheme();
-}
 
 export default function NavBar() {
   return (
@@ -33,14 +27,14 @@ export default function NavBar() {
         </ButtonLink>
       </div>
       <div className="NavBar__right">
-        <Button
+        <ButtonLink
           size={buttonSizes.XL}
           theme={buttonThemes.TEXT}
-          title="Toggle dark mode"
-          onClick={handleDarkModeOnClick}
+          title="Account page"
+          to={routes.accountPath()}
         >
-          <FontAwesomeIcon icon={faEye} />
-        </Button>
+          <FontAwesomeIcon icon={faUser} />
+        </ButtonLink>
         <ButtonLink
           size={buttonSizes.XL_NO_PADDING}
           theme={buttonThemes.TEXT}

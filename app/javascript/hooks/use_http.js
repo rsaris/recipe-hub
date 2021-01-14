@@ -16,11 +16,13 @@ function createHttpMethod(setLoading, httpMethod, store) {
     const response = await httpMethod(path, body);
     setLoading(false);
 
+    if (!response) { return null; }
+
     if (includeMeta) {
       return store.syncWithMeta(response);
-    } else {
-      return store.sync(response);
     }
+
+    return store.sync(response);
   };
 }
 
@@ -35,11 +37,13 @@ export default function useHttp() {
     const response = await rawHttpGet(path);
     setLoading(false);
 
+    if (!response) { return null; }
+
     if (includeMeta) {
       return store.syncWithMeta(response);
-    } else {
-      return store.sync(response);
     }
+
+    return store.sync(response);
   }, [store]);
 
   const httpDelete = useCallback(createHttpMethod(setLoading, rawHttpDelete, store), [store]);

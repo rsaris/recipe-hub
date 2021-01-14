@@ -5,10 +5,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
 
-  get 'recipes', to: 'recipes#index', as: :recipes
-  get 'recipes/*path', to: 'recipes#index'
-
   namespace :api, defaults: { format: :json } do
     resources :recipes, only: [:create, :destroy, :index, :show, :update]
+    resources :users, only: [:show]
+
+    devise_scope :user do
+      resource :session, only: [:destroy]
+    end
   end
+
+  get '*path', to: 'static_pages#app', format: :html
+  get 'recipes', to: 'static_pages#app', format: :html, as: :recipes
 end

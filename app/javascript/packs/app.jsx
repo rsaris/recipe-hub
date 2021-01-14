@@ -2,15 +2,15 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import RecipesApp from 'recipes';
+import App from 'app';
 
 document.addEventListener('DOMContentLoaded', () => {
   const appElement = document.createElement('div');
-  appElement.classList.add('RecipesApp');
+  appElement.classList.add('App');
 
   ReactDOM.render(
     <BrowserRouter>
-      <RecipesApp />
+      <App />
     </BrowserRouter>,
     document.body.appendChild(appElement),
   );

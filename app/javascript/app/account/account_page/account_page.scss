@@ -1,0 +1,16 @@
+.AccountPage {
+  h1 {
+    text-align: center;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    max-width: 15rem;
+    margin: auto;
+
+    .Button + .Button {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+name: Linter
+
+on: push
+
+jobs:
+  js-lint:
+    name: Lint javascript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: yarn
+      - run: yarn lint
+
+  ruby-lint:
+    name: Lint ruby
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.6'
+      - run: gem install bundler
+      - run: bundle install
+      - run: bundle exec rubocop

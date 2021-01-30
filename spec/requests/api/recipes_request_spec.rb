@@ -76,7 +76,7 @@ RSpec.describe 'Api::Recipes', type: :request do
         recipes = [create(:recipe, user: user), create(:recipe, user: user)]
         create(:recipe)
         make_request
-        expect(response.body).to eql({ data: recipes.map { |r| serialized_recipe(r) }}.to_json)
+        expect(response.body).to eql({ data: recipes.map { |r| serialized_recipe(r) } }.to_json)
       end
     end
   end
@@ -140,7 +140,7 @@ RSpec.describe 'Api::Recipes', type: :request do
   describe 'update' do
     let(:recipe) { create(:recipe, user: user) }
 
-    def make_request(updates = { content: recipe.content})
+    def make_request(updates = { content: recipe.content })
       patch api_recipe_path(
         id: recipe.id,
         data: { attributes: updates },
@@ -182,7 +182,7 @@ RSpec.describe 'Api::Recipes', type: :request do
       end
 
       it 'deletes a recipe' do
-        expect { make_request }.to change{ Recipe.count }.from(1).to(0)
+        expect { make_request }.to change { Recipe.count }.from(1).to(0)
       end
     end
   end

@@ -58,8 +58,8 @@ RSpec.describe 'Api::Recipes', type: :request do
   end
 
   describe 'index' do
-    def make_request
-      get api_recipes_path
+    def make_request(params = {})
+      get api_recipes_path(params)
     end
 
     context 'when authorized' do
@@ -77,6 +77,13 @@ RSpec.describe 'Api::Recipes', type: :request do
         create(:recipe)
         make_request
         expect(response.body).to eql({ data: recipes.map { |r| serialized_recipe(r) } }.to_json)
+      end
+
+      it 'finds matching recipes when searching' do
+        recipe = create(:recipe, user: user, title: 'foo')
+        create(:recipe, user: user, title: 'bar')
+        make_request(search: 'foo')
+        expect(response.body).to eql({ data: [serialized_recipe(recipe)] }.to_json)
       end
     end
   end

@@ -33,4 +33,15 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.valid?).to be(true)
     end
   end
+
+  describe 'by_title_search' do
+    let!(:foo_recipe) { create(:recipe, title: 'foo') }
+    let!(:foo_bar_recipe) { create(:recipe, title: 'foo bar') }
+    let!(:bar_recipe) { create(:recipe, title: 'bar') }
+
+    it 'returns a matching recipe' do
+      expect(described_class.by_title_search('foo'))
+        .to match_array([foo_recipe, foo_bar_recipe])
+    end
+  end
 end

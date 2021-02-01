@@ -11,7 +11,14 @@ class Api::RecipesController < Api::BaseController
   def index
     authorize(Recipe)
 
-    render_collection(policy_scope(Recipe.order(:id)))
+    recipe_scope =
+      if params[:search].present?
+        Recipe.by_title_search(params[:search])
+      else
+        Recipe.order(:id)
+      end
+
+    render_collection(policy_scope(recipe_scope))
   end
 
   def show

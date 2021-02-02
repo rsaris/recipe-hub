@@ -10,7 +10,7 @@ class Api::BaseController < ApplicationController
     serializer: default_serializer_for(resources.first)
   )
     if resources.empty?
-      return render json: []
+      return render json: { data: [] }
     end
 
     render json: serializer.new(resources, is_collection: true).serializable_hash

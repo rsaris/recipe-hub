@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { ButtonLink, buttonThemes } from 'common/button';
 import Page from 'common/page';
 
-import useHttp from 'hooks/use_http';
+import useDebouncedSearch from 'hooks/use_debounced_search';
 
 import routes from 'lib/routes';
 
 import RecipeListing from './recipe_listing';
+import SearchForm from './search_form';
 
 import './list_page.scss';
 
 export default function ListPage() {
-  const [recipes, setRecipes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const { httpGet } = useHttp();
+  const { results: recipes } = useDebouncedSearch(
+    routes.api_recipes_path(),
+    searchTerm,
+  );
 
-  useEffect(() => {
-    async function loadRecipes() {
-      const response = await httpGet(routes.api_recipes_path());
-      if (response) {
-        setRecipes(response);
-      }
-    }
-
-    loadRecipes();
-  }, []);
+  function handleSearchChange({ target: { value } }) {
+    setSearchTerm(value);
+  }
 
   return (
     <Page className="ListPage">
@@ -41,6 +38,7 @@ export default function ListPage() {
           <FontAwesomeIcon icon={faPlus} />
         </ButtonLink>
       </h1>
+      <SearchForm onSearchChange={handleSearchChange} />
       <ul className="ListPage__listings">
         {recipes.map((recipe) => (<RecipeListing key={recipe.id} recipe={recipe} />))}
       </ul>

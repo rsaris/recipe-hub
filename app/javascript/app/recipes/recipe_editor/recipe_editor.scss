@@ -3,18 +3,6 @@
   flex-direction: column;
   height: 100%;
 
-  &__title {
-    border: none;
-    border-bottom: 1px solid var(--colors-font-200);
-    font-size: var(--font-size-x-large);
-
-    &:active, &:focus, &:focus-within {
-      border: none;
-      outline: none;
-      border-bottom: 1px solid var(--colors-font-200);
-    }
-  }
-
   &__content {
     border: none;
     flex-grow: 1;

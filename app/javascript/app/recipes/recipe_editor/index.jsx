@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import { Button, buttonSizes, buttonThemes } from 'common/button';
+import Input from 'common/input';
 
 import './recipe_editor.scss';
 
@@ -15,8 +16,8 @@ export default function RecipeEditor({
 }) {
   return (
     <form className="RecipeEditor" onSubmit={onSave}>
-      <input
-        className="RecipeEditor__title"
+      <Input
+        className="RecipeEditor__title Input--xl"
         placeholder="Recipe title"
         value={title}
         onChange={onTitleChange}

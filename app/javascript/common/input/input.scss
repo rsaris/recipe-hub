@@ -1,0 +1,15 @@
+.Input {
+  border: none;
+  border-bottom: 1px solid var(--colors-font-200);
+  font-size: var(--font-size-medium);
+
+  &:active, &:focus, &:focus-within {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--colors-font-200);
+  }
+}
+
+.Input--xl {
+  font-size: var(--font-size-x-large);
+}

@@ -26,4 +26,14 @@
       }
     }
   }
+
+  .SearchForm {
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 25rem;
+
+    .Input {
+      width: 100%;
+    }
+  }
 }

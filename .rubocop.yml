@@ -5,3 +5,16 @@ AllCops:
     - 'bin/**/*'
     - 'db/schema.rb'
     - 'node_modules/**/*'
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma

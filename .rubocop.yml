@@ -15,6 +15,5 @@ Metrics/BlockLength:
 Style/Lambda:
   EnforcedStyle: literal
 
-
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma

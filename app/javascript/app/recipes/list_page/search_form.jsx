@@ -6,7 +6,11 @@ import Input from 'common/input';
 export default function SearchForm({ onSearchChange }) {
   return (
     <div className="SearchForm">
-      <Input autoFocus onChange={onSearchChange} />
+      <Input
+        autoFocus
+        placeholder="Search your recipes..."
+        onChange={onSearchChange}
+      />
     </div>
   );
 }
